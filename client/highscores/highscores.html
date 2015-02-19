@@ -1,0 +1,55 @@
+<template name="highscores">
+    <div class="container">
+        <div class="grid">
+            <div class="unit span-grid">
+                <h2>OHS Elo Highscores</h2>
+            </div>
+            <div>
+                <div class="unit one-of-three" style="text-align: center">
+                    <b>Name</b>
+                </div>
+                <div class="unit one-of-three" style="text-align: center">
+                    <b>Elo Rating</b>
+                </div>
+                <div class="unit one-of-three" style="text-align: center">
+                    <b>Record</b>
+                </div>
+                {{#each players}}
+                    {{> player}}
+                {{/each}}
+            </div>
+
+            <hr>
+
+            <div class="unit span-grid">
+                <h2>Recent Games</h2>
+            </div>
+            <div>
+                {{#each games}}
+                    {{> game}}
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+</template>
+
+<template name="player">
+    <div style="border-top: 1px solid #EFEFEF">
+        <div class="unit one-of-three" style="text-align: center">{{name}}</div>
+        <div class="unit one-of-three" style="text-align: center">{{rating}}</div>
+        <div class="unit one-of-three" style="text-align: center">
+            {{won}}W <span style="color: #CACACA">/</span>
+            {{lost}}L <span style="color: #CACACA">/</span>
+            {{drawn}}D
+        </div>
+    </div>
+</template>
+
+<template name="game">
+    <div>
+        <div class="unit one-of-three" style="text-align: right">{{name1}}</div>
+        <div class="unit one-of-three" style="text-align: center"><i>{{verb}}</i></div>
+        <div class="unit one-of-three" style="text-align: left">{{name2}}</div>
+    </div>
+</template>

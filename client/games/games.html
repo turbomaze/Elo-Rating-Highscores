@@ -1,0 +1,59 @@
+<template name="games">
+    <form id="record-game">
+        <h3>Record Game</h3>
+        <select name="player1">
+            <option value="">-- Player 1 --</option>
+            {{#each players}}
+                <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+
+        <select name="score">
+            <option value="1">Beat</option>
+            <option value="0.5">Drew</option>
+        </select>
+
+        <select name="player2">
+            <option value="">-- Player 2 --</option>
+            {{#each players}}
+                <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Submit">
+    </form><br>
+
+    <form id="add-player">
+        <h3>Add Player</h3>
+        <input type="text" name="name" placeholder="Player's name">
+        <input type="submit" value="Submit">
+    </form><br>
+
+    <form id="edit-player">
+        <h3>Edit Player</h3>
+        Who: <select name="name" id="playertoedit">
+            <option value="">-- Player --</option>
+            {{#each players}}
+                <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <input type="text" name="newname" id="newname" placeholder="New name">
+        <input type="submit" value="Submit">
+        <br>
+        Elo: <input type="number" name="newrating" id="newrating" min="400" max="2000" placeholder="New Elo">
+        # games: <input type="number" name="newnumgames" id="newnumgames" min="0" placeholder="New # games"><br>
+        # won: <input type="number" name="newnumwon" id="newnumwon" min="0" max="999" placeholder="New # won">
+        # lost: <input type="number" name="newnumlost" id="newnumlost" min="0" max="999" placeholder="New # lost">
+        # drawn: <input type="number" name="newnumdrawn" id="newnumdrawn" min="0" max="999" placeholder="New # drawn">
+    </form><br>
+
+    <form id="remove-player">
+        <h3>Remove Player</h3>
+        Player's name: <select name="name">
+            <option value="">-- Player --</option>
+            {{#each players}}
+                <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Remove player">
+    </form>
+</template>
